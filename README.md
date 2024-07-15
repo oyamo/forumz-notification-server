@@ -12,6 +12,21 @@ cd forumz-notification-server
 docker build -t notification-server:1.0.0 .
 ```
 
+## Liquibase migration
+```shell
+docker run --rm --network local-sandbox \
+    --volume `pwd`/migration:/liquibase/changelog liquibase/liquibase:4.13 \
+    --url="jdbc:postgresql://postgres:5432/notification" \
+    --changeLogFile=master-changeLog.yml \
+    --username=dev \
+    --password='Test@12345' \
+    --database-changelog-table-name=database_changelog \
+    --database-changelog-lock-table-name=database_changelog_lock \
+    --driver=org.postgresql.Driver \
+    --log-level=info \
+    update
+```
+
 ## Run
 ```shell
 docker run -d \
