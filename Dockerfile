@@ -20,5 +20,5 @@ RUN go  build -v github.com/oyamo/forumz-notification-server/cmd/server
 FROM gcr.io/distroless/base
 COPY --from=builder /app/server /
 
-EXPOSE 3000
+EXPOSE 3010
 CMD ["/server"]
