@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      file: notifications-changeLog.yml
+      relativeToChangelogFile: true
+  - include:
+      file: data-changeLog.yml
+      relativeToChangelogFile: true

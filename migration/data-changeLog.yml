@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - changeSet:
+      id:  data_schema_20240713_1
+      author: Oyamo Brian
+      runOnChange: false
+      runInTransaction: true
+      changes:
+        sqlFile:
+          path: data/channel_types.sql
+          encoding: UTF-8
+          relativeToChangelogFile: false
+          endDelimiter: //
+          splitStatements: true
+  - changeSet:
+      id: data_schema_20240713_3
+      author: Oyamo Brian
+      runOnChange: false
+      runInTransaction: true
+      changes:
+        sqlFile:
+          path: data/channels.sql
+          encoding: UTF-8
+          relativeToChangelogFile: false
+          endDelimiter: //
+          splitStatements: true

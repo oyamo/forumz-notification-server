@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/migration/data/channel_types.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/migration/data/channels.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/migration/schema/channel.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/migration/schema/notification.sql" dialect="PostgreSQL" />
+  </component>
+</project>

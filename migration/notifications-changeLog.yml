@@ -1,0 +1,64 @@
+databaseChangeLog:
+  - changeSet:
+      id:  notifications_schema_20240713_1
+      author: Oyamo Brian
+      runOnChange: false
+      runInTransaction: true
+      changes:
+        sqlFile:
+          path: schema/channel_type.sql
+          encoding: UTF-8
+          relativeToChangelogFile: false
+          endDelimiter: //
+          splitStatements: true
+  - changeSet:
+      id: notifications_schema_20240713_2
+      author: Oyamo Brian
+      runOnChange: false
+      runInTransaction: true
+      changes:
+        sqlFile:
+          path: schema/channel.sql
+          encoding: UTF-8
+          relativeToChangelogFile: false
+          endDelimiter: //
+          splitStatements: true
+  - changeSet:
+      id: notifications_schema_20240713_3
+      author: Oyamo Brian
+      runOnChange: false
+      runInTransaction: true
+      changes:
+        sqlFile:
+          path: schema/notification.sql
+          encoding: UTF-8
+          relativeToChangelogFile: false
+          endDelimiter: //
+          splitStatements: true
+  - changeSet:
+      id: notifications_schema_20240714_1
+      author: Oyamo Brian
+      runOnChange: false
+      runInTransaction: true
+      changes:
+        - addColumn:
+            tableName: notification
+            columns:
+              - column:
+                  name: type
+                  type: varchar(64)
+        - sql:
+            endDelimiter: //
+            splitStatements: true
+            sql: alter table notification add constraint chk_type check ( type in ('Connection', 'Post') )
+            stripComments: true
+  - changeSet:
+      id: notifications_schema_20240714_2
+      author: Oyamo Brian
+      runOnChange: false
+      runInTransaction: true
+      changes:
+        - modifyDataType:
+            columnName: content
+            newDataType: TEXT
+            tableName: notification
